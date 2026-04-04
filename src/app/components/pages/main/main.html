@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="m-3 m-md-5">
+    <img src="images/main-banner.png" class="img-fluid" alt="Banner" />
+  </div>
+  <h2 class="m-5 text-center h2">Ответы на часто задаваемые вопросы</h2>
+  <div class="col-lg-8 m-auto">
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header m-2">
+          <button
+            class="accordion-button rounded"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseOne"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            Собираете ли вы подарочные боксы?
+          </button>
+        </h2>
+        <div
+          id="collapseOne"
+          class="accordion-collapse collapse show"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на
+            любой вкус, объем и стоимость!
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header m-2">
+          <button
+            class="accordion-button collapsed rounded"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo"
+            aria-expanded="false"
+            aria-controls="collapseTwo"
+          >
+            Сколько у вас разновидностей чая?
+          </button>
+        </h2>
+        <div
+          id="collapseTwo"
+          class="accordion-collapse collapse rounded"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">Много.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header m-2">
+          <button
+            class="accordion-button collapsed rounded"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            В какой срок осуществляется доставка?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">1-2 дня.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header m-2">
+          <button
+            class="accordion-button collapsed rounded"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseFour"
+            aria-expanded="false"
+            aria-controls="collapseFour"
+          >
+            У вас обновляется ассортимент?
+          </button>
+        </h2>
+        <div
+          id="collapseFour"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">Да.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header m-2">
+          <button
+            class="accordion-button collapsed rounded"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseFive"
+            aria-expanded="false"
+            aria-controls="collapseFive"
+          >
+            Какого объема у вас пачки чая?
+          </button>
+        </h2>
+        <div
+          id="collapseFive"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">Много.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+@if (isOpenPopup()) {
+  <div class="custom-popup-backdrop">
+    <div class="custom-popup">
+      <h5 class="mb-4">Посмотрите наши чайные коллекции</h5>
+
+      <div class="d-flex justify-content-end gap-2">
+        <a class="btn btn-primary" routerLink="/catalog">Смотреть</a>
+        <button class="btn btn-secondary" (click)="closePopup()">Закрыть</button>
+      </div>
+    </div>
+  </div>
+}
