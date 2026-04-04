@@ -1,5 +1,5 @@
 import { Component, Input, signal } from '@angular/core';
-import { CatalogType } from '../../../../types/catalog.type';
+import { CatalogType } from '../../../types/catalog.type';
 import { ShortTextPipe } from '../../../pipes/short-text-pipe';
 import { RouterLink } from '@angular/router';
 

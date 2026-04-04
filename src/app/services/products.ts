@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CatalogType } from '../../types/catalog.type';
+import { CatalogType } from '../types/catalog.type';
 
 @Injectable()
 export class CatalogService {

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, signal, WritableSignal } from '@angular/core';
-import { CatalogType } from '../../../../types/catalog.type';
+import { CatalogType } from '../../../types/catalog.type';
 import { CatalogService } from '../../../services/products';
 import { Router } from '@angular/router';
 import { CatalogCard } from '../../common/catalog-card/catalog-card';
