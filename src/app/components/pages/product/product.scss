@@ -1,0 +1,11 @@
+.product-card {
+  border-radius: 1rem !important;
+}
+.product-img-col {
+  background-color: #f8f9fa;
+  min-height: 320px;
+  img {
+    max-height: 380px;
+    object-fit: contain;
+  }
+}

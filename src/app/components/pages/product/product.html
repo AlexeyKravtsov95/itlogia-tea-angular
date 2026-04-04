@@ -1,0 +1,44 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-9 col-xl-7">
+
+      <div class="card border-0 shadow product-card overflow-hidden">
+        <div class="row g-0">
+
+          <div class="col-md-5 product-img-col d-flex">
+            <img
+              [src]="product().image"
+              class="img-fluid p-4"
+              alt="{{ product().title }}"
+            >
+          </div>
+
+          <div class="col-md-7 border-start">
+            <div class="card-body d-flex flex-column h-100 p-4 p-lg-5">
+              <h2 class="card-title mb-3">{{ product().title }}</h2>
+
+              <p class="card-text text-secondary lh-lg flex-grow-1">
+                {{ product().description }}
+              </p>
+
+              <hr class="my-4">
+
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <div class="text-muted small mb-1">Цена</div>
+                  <div class="fs-2 fw-bold text-primary">
+                    {{ product().price }}
+                    <span class="fs-6 fw-normal text-muted">руб.</span>
+                  </div>
+                </div>
+                <a class="btn btn-danger btn-lg px-4" routerLink="/order" [queryParams]="{product: product().title}">Купить</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

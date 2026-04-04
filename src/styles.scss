@@ -1,1 +1,65 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bs-primary: #0d54bc;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--bs-primary);
+  --bs-btn-border-color: none;
+}
+
+.btn-outline-primary {
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-color: var(--bs-primary);
+  --bs-btn-hover-bg: var(--bs-primary);
+}
+
+.accordion {
+  --bs-accordion-btn-bg: var(--bs-primary);
+  --bs-accordion-btn-color: white;
+  --bs-accordion-active-bg: var(--bs-primary);
+  --bs-accordion-active-color: white;
+  --bs-accordion-btn-focus-box-shadow: none;
+  --bs-accordion-btn-icon: url("/images/arrow.png");
+  --bs-accordion-btn-active-icon: url("/images/arrow.png");
+}
+
+.accordion-button {
+  background-color: var(--bs-accordion-btn-bg);
+  color: var(--bs-accordion-btn-color);
+  box-shadow: none !important;
+  border: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--bs-accordion-active-bg);
+  color: var(--bs-accordion-active-color);
+  box-shadow: none !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none !important;
+  border-color: transparent !important;
+  outline: none !important;
+}
+
+.accordion-button::after {
+  background-image: var(--bs-accordion-btn-icon);
+  filter: brightness(0) invert(1);
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: var(--bs-accordion-btn-active-icon);
+  filter: brightness(0) invert(1);
+  transform: rotate(-180deg);
+}
+
+.accordion-item {
+  border: none;
+  background-color: transparent;
+}
+
+.accordion-body {
+  border: none;
+  background-color: #f8f9fa;
+  border-radius: 0 0 0.375rem 0.375rem;
+}
