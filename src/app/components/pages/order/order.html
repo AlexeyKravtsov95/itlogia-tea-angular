@@ -1,0 +1,131 @@
+<div class="container min-vh-100">
+  @if (!showForm()) {
+    <h2 class="m-5 text-center h2 text-primary">Спасибо за заказ!</h2>
+  }
+  @if (showForm()) {
+    <h2 class="m-5 text-center h2">Сделать заказ</h2>
+    <div class="col-lg-6 m-auto">
+      <form class="row g-3 m-auto" [formGroup]="orderForm">
+        <div class="col-12 col-sm-6 col-md-4">
+          <label for="inputFirstName" class="form-label">Имя</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputFirstName"
+            formControlName="name"
+          />
+          @if (name?.invalid && (name?.touched || name?.dirty)) {
+            @if (name?.errors?.['required']) {
+              <div class="text-danger error-input">
+                Введите имя
+              </div>
+            }
+            @if (name?.errors?.['pattern']) {
+              <div class="text-danger error-input">
+                Имя должно содержать только русский символы
+              </div>
+            }
+          }
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <label for="inputLastName" class="form-label">Фамилия</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputLastName"
+            formControlName="last_name"
+          />
+
+          @if (lastName?.invalid && (lastName?.touched || lastName?.dirty)) {
+            @if (lastName?.errors?.['required']) {
+              <div class="text-danger error-input">
+                Введите фамилия
+              </div>
+            }
+            @if (lastName?.errors?.['pattern']) {
+              <div class="text-danger error-input">
+                Фамилия должна содержать только русский символы
+              </div>
+            }
+          }
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <label for="inputPhone" class="form-label">Телефон</label>
+          <input type="tel" class="form-control" id="inputPhone" formControlName="phone" />
+          @if (phone?.invalid && (phone?.touched || phone?.dirty)) {
+            @if (phone?.errors?.['required']) {
+              <div class="text-danger error-input">
+                Введите номер телефона
+              </div>
+            }
+            @if (phone?.errors?.['pattern']) {
+              <div class="text-danger error-input">
+                Номер телефона должен содержать 11 цифр
+              </div>
+            }
+          }
+        </div>
+        <div class="col-12 col-sm-6">
+          <label for="inputCountry" class="form-label">Страна</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputCountry"
+            formControlName="country"
+          />
+          @if (country?.invalid && (country?.touched || country?.dirty) && country?.errors?.['required']) {
+            <div class="text-danger error-input">
+              Введите страну
+            </div>
+          }
+        </div>
+        <div class="col-12 col-sm-6">
+          <label for="inputIndex" class="form-label">Индекс</label>
+          <input
+            type="number"
+            class="form-control"
+            id="inputIndex"
+            formControlName="zip"
+          />
+          @if (zip?.invalid && (zip?.touched || zip?.dirty)) {
+            @if (zip?.errors?.['required']) {
+              <div class="text-danger error-input">
+                Введите индекс
+              </div>
+            }
+            @if (zip?.errors?.['pattern']) {
+              <div class="text-danger error-input">
+                Индекс должен содержать 6 цифр
+              </div>
+            }
+          }
+        </div>
+        <div class="col-12">
+          <label for="inputAdress" class="form-label">Адрес</label>
+          <input type="text" class="form-control" id="inputAdress" formControlName="address" />
+          @if (address?.invalid && (address?.touched || address?.dirty) && address?.errors?.['required']) {
+            <div class="text-danger error-input">
+              Введите адрес
+            </div>
+          }
+        </div>
+        <div class="col-12">
+          <label for="inputProduct" class="form-label">Товар</label>
+          <input type="text" class="form-control" id="inputProduct" readonly formControlName="product" />
+        </div>
+        <div class="col-12">
+          <label for="inputComment" class="form-label">Комментарий к заказу</label>
+          <input type="text" class="form-control" id="inputComment" formControlName="comment" />
+        </div>
+        <div class="col-12 mb-5">
+          <button class="btn btn-primary px-5" type="button" [disabled]="isDisableButton()" (click)="createOrder()">
+            Отправить
+          </button>
+          @if (formError()) {
+            <span class="px-5 d-flex text-danger">Произошла ошибка. Попробуйте еще раз.</span>
+          }
+        </div>
+      </form>
+    </div>
+  }
+</div>
