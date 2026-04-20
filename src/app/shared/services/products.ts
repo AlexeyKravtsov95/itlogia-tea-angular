@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CatalogType } from '../types/catalog.type';
+import { CatalogType } from '../../types/catalog.type';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class CatalogService {
   constructor(private http: HttpClient) {}
 
   getCatalog(): Observable<CatalogType[]> {
-    return this.http.get<CatalogType[]>('https://testologia.ru/tea');
+    return this.http.get<CatalogType[]>(environment.apiUrl + 'tea');
   }
 
   getProduct(id: number): Observable<CatalogType> {
-    return this.http.get<CatalogType>(`https://testologia.ru/tea?id=${id}`);
+    return this.http.get<CatalogType>(environment.apiUrl + `tea?id=${id}`);
   }
 
   createOrder(data: {
@@ -26,7 +27,7 @@ export class CatalogService {
     comment?: string;
   }) {
     return this.http.post<{ success: number }>(
-      'https://testologia.ru/order-tea',
+      environment.apiUrl + 'order-tea',
       data,
     );
   }

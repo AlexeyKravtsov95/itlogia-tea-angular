@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
-import { CatalogType } from '../../../types/catalog.type';
+import { CatalogType } from '../../types/catalog.type';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { CatalogService } from '../../../services/products';
+import { CatalogService } from '../../shared/services/products';
 import { Subscription } from 'rxjs';
 
 @Component({

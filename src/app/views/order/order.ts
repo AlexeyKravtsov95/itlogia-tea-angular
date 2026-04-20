@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, signal, WritableSignal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CatalogService } from '../../../services/products';
+import { CatalogService } from '../../shared/services/products';
 import { catchError, map, of, Subscription, tap, throwError } from 'rxjs';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 

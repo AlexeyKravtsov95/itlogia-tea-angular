@@ -1,0 +1,12 @@
+<ng-template #popup>
+  <div class="" tabindex="-1" id="myModal">
+    <div class="modal-header">
+      <h5 class="modal-title">Посмотрите наши чайные коллекции</h5>
+      <button type="button" class="btn-close" (click)="close()" aria-label="Close"></button>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="close()">Закрыть</button>
+      <button type="button" class="btn btn-primary" routerLink="/catalog" (click)="close()">Смотреть</button>
+    </div>
+  </div>
+</ng-template>

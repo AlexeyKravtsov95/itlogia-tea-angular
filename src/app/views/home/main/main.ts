@@ -1,17 +1,20 @@
-import { Component, OnDestroy, OnInit, signal, WritableSignal } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { RouterLink } from '@angular/router';
+import { Popup } from '../../../shared/components/popup/popup';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'main-component',
-  imports: [RouterLink],
+  imports: [Popup, NgbAccordionModule],
   templateUrl: './main.html',
   styleUrl: './main.scss',
 })
 export class MainComponent implements OnInit, OnDestroy {
   private popupObserver$: Observable<void>;
   private subscription: Subscription | null = null;
-  isOpenPopup: WritableSignal<boolean> = signal(false);
+
+  @ViewChild(Popup)
+  private popupComponent!: Popup;
 
   constructor() {
     this.popupObserver$ = new Observable((observer) => {
@@ -28,7 +31,7 @@ export class MainComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.popupObserver$.subscribe({
       next: () => {
-        this.isOpenPopup.set(true);
+        this.popupComponent.open()
       },
       error: (err) => console.error(err),
     });
@@ -36,9 +39,5 @@ export class MainComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription?.unsubscribe();
-  }
-
-  closePopup() {
-    this.isOpenPopup.set(false);
   }
 }

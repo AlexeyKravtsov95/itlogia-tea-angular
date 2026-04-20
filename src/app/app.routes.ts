@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { MainComponent } from './components/pages/main/main';
-import { CatalogComponent } from './components/pages/catalog/catalog';
-import { ProductComponent } from './components/pages/product/product';
-import { OrderComponent } from './components/pages/order/order';
+import { MainComponent } from './views/home/main/main';
+import { CatalogComponent } from './views/home/catalog/catalog';
+import { ProductComponent } from './views/product/product';
+import { OrderComponent } from './views/order/order';
 
 export const routes: Routes = [
   {
