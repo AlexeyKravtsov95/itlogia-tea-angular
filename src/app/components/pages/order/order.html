@@ -5,7 +5,7 @@
   @if (showForm()) {
     <h2 class="m-5 text-center h2">Сделать заказ</h2>
     <div class="col-lg-6 m-auto">
-      <form class="row g-3 m-auto" [formGroup]="orderForm">
+      <form class="row g-3 m-auto" [formGroup]="orderForm" (ngSubmit)="createOrder()">
         <div class="col-12 col-sm-6 col-md-4">
           <label for="inputFirstName" class="form-label">Имя</label>
           <input
@@ -118,7 +118,7 @@
           <input type="text" class="form-control" id="inputComment" formControlName="comment" />
         </div>
         <div class="col-12 mb-5">
-          <button class="btn btn-primary px-5" type="button" [disabled]="isDisableButton()" (click)="createOrder()">
+          <button class="btn btn-primary px-5" [disabled]="orderForm.disabled || orderForm.invalid">
             Отправить
           </button>
           @if (formError()) {

@@ -16,7 +16,6 @@ export class OrderComponent implements OnInit, OnDestroy {
   private subscription: Subscription | null = null;
   private subscriptionOrder: Subscription | null = null;
   showForm: WritableSignal<boolean> = signal(true);
-  isDisableButton: WritableSignal<boolean> = signal(false);
   formError: WritableSignal<boolean> = signal(false);
 
   constructor(
@@ -84,7 +83,6 @@ export class OrderComponent implements OnInit, OnDestroy {
 
   public createOrder(): void {
     if (this.orderForm.valid) {
-      this.isDisableButton.set(true);
       this.formError.set(false);
 
       this.subscriptionOrder = this.catalogService
@@ -102,12 +100,10 @@ export class OrderComponent implements OnInit, OnDestroy {
           map((response) => response.success),
           tap((success) => {
             if (success === 1) {
-              this.isDisableButton.set(true);
               this.showForm.set(false);
               this.formError.set(false);
             } else {
               this.formError.set(true);
-              this.isDisableButton.set(false);
               setTimeout(() => {
                 this.formError.set(false);
               }, 3000);
@@ -115,7 +111,6 @@ export class OrderComponent implements OnInit, OnDestroy {
           }),
           catchError((error) => {
             console.error('Error:', error);
-            this.isDisableButton.set(false);
             this.formError.set(true);
             setTimeout(() => {
               this.formError.set(false);
